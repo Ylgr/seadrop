@@ -48,13 +48,24 @@ const config: HardhatUserConfig = {
     verificationNetwork: {
       url: process.env.NETWORK_RPC ?? "",
     },
+    testnet: {
+      url: "https://data-seed-prebsc-1-s1.binance.org:8545",
+      chainId: 97,
+      gasPrice: 20000000000,
+      accounts: [process.env.PRIVATE_KEY as string],
+      blockGasLimit: 30_000_000,
+      throwOnCallFailures: false,
+    }
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
     currency: "USD",
   },
   etherscan: {
-    apiKey: process.env.EXPLORER_API_KEY,
+    // apiKey: process.env.EXPLORER_API_KEY,
+    apiKey: {
+      bscTestnet: process.env.API_KEY as string
+    },
   },
   preprocess: {
     eachLine: (hre) => ({
