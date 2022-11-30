@@ -18,7 +18,7 @@ async function main() {
     console.log('1')
     const ERC721SeaDrop = await ethers.getContractFactory("ERC721SeaDrop");
 
-    // // Attach deployed contract to continue migration code
+    // Attach deployed contract to continue migration code
     // const token = ERC721SeaDrop.attach('0x2ab4Cd18057C7a3df47902cD5F28E628A00f17E0')
 
     const token = await ERC721SeaDrop.deploy(
@@ -65,6 +65,12 @@ async function main() {
     );
     console.log('Done')
 
+    const SeaDrop = await ethers.getContractFactory("SeaDrop");
+    const seaDrop = SeaDrop.attach('0x00005EA00Ac477B1030CE78506496e8C2dE24bf5')
+    await seaDrop.mintPublic(token.address, feeRecipient, '0x0000000000000000000000000000000000000000', 3,
+        {value: parseEther('0.0003').toString()}
+    )
+    console.log('Mint done!')
 }
 main().catch((error) => {
     console.error(error);
