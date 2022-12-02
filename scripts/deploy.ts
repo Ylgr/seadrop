@@ -51,13 +51,12 @@ async function main() {
     await token.updateAllowedFeeRecipient(seadrop, feeRecipient, true);
     console.log('6')
 
-    const now = Math.round((new Date()).getTime() / 1000);
     await token.updatePublicDrop(
         seadrop,
         {
             mintPrice: mintPrice,
-            startTime: now, // start time
-            endTime: now + 1000, // end time
+            startTime: 1669977000, // start time
+            endTime: 1769977000, // end time
             maxTotalMintableByWallet: maxTotalMintableByWallet,
             feeBps: feeBps,
             restrictFeeRecipients: true
