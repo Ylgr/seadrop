@@ -19,22 +19,23 @@ async function main() {
     const ERC721SeaDrop = await ethers.getContractFactory("ERC721SeaDrop");
 
     // Attach deployed contract to continue migration code
-    // const token = ERC721SeaDrop.attach('0x2ab4Cd18057C7a3df47902cD5F28E628A00f17E0')
+    // const token = ERC721SeaDrop.attach('0xe8c3FcBB82130D1d82B8149DC223CCd677AF95c0')
 
     const token = await ERC721SeaDrop.deploy(
-        "My Example Token",
-        "ExTKN",
+        "Dice bear test token",
+        "DBTT",
         [seadrop]
     );
-
     await token.deployed()
+    console.log('token: ', token.address)
+
     console.log('2')
 
     await run(`verify:verify`, {
         address: token.address,
         constructorArguments: [
-            "My Example Token",
-            "ExTKN",
+            "Dice bear test token",
+            "DBTT",
             [seadrop]
         ],
     });

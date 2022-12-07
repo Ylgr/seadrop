@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.17;
+
 import "./ERC721SeaDrop.sol";
 
 contract ERC721DiceBearSeaDrop is ERC721SeaDrop {
@@ -7,14 +10,10 @@ contract ERC721DiceBearSeaDrop is ERC721SeaDrop {
         address[] memory allowedSeaDrop
     ) ERC721SeaDrop(name, symbol, allowedSeaDrop) {}
 
-    string public baseURI = "https://raw.githubusercontent.com/Ylgr/seadrop/dicebear_uri/uri/";
     string public baseExtension = ".json";
 
-    function setBaseURI(string memory _value) external onlyOwner {
-        baseURI = _value;
-    }
     function _baseURI() internal view virtual override returns (string memory) {
-        return baseURI;
+        return "https://raw.githubusercontent.com/Ylgr/seadrop/dicebear_uri/uri/";
     }
 
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
