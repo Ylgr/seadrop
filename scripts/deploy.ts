@@ -16,12 +16,12 @@ async function main() {
     const mintPrice = parseEther('0.0001').toString();
     const maxTotalMintableByWallet = 5;
     console.log('1')
-    const ERC721SeaDrop = await ethers.getContractFactory("ERC721SeaDrop");
+    const ERC721DiceBearSeaDrop = await ethers.getContractFactory("ERC721DiceBearSeaDrop");
 
     // Attach deployed contract to continue migration code
     // const token = ERC721SeaDrop.attach('0xe8c3FcBB82130D1d82B8149DC223CCd677AF95c0')
 
-    const token = await ERC721SeaDrop.deploy(
+    const token = await ERC721DiceBearSeaDrop.deploy(
         "Dice bear test token",
         "DBTT",
         [seadrop]
@@ -64,13 +64,13 @@ async function main() {
         }
     );
     console.log('Done')
-
-    const SeaDrop = await ethers.getContractFactory("SeaDrop");
-    const seaDrop = SeaDrop.attach('0x00005EA00Ac477B1030CE78506496e8C2dE24bf5')
-    await seaDrop.mintPublic(token.address, feeRecipient, '0x0000000000000000000000000000000000000000', 3,
-        {value: parseEther('0.0003').toString()}
-    )
-    console.log('Mint done!')
+    //
+    // const SeaDrop = await ethers.getContractFactory("SeaDrop");
+    // const seaDrop = SeaDrop.attach('0x00005EA00Ac477B1030CE78506496e8C2dE24bf5')
+    // await seaDrop.mintPublic(token.address, feeRecipient, '0x0000000000000000000000000000000000000000', 3,
+    //     {value: parseEther('0.0003').toString()}
+    // )
+    // console.log('Mint done!')
 }
 main().catch((error) => {
     console.error(error);

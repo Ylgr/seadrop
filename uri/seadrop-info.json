@@ -1,0 +1,42 @@
+{
+  "name": "Test drop",
+  "description": "Just an open-source add generator testing on seadrop",
+  "stages": [
+    {
+      "name": "Public",
+      "uuid": "74211f9a-44d9-4f94-b291-010d5b66428b",
+      "description": "Limit 10 per wallet",
+      "isPublic": true,
+      "mintPrice": 90000000000000,
+      "maxTotalMintableByWallet": 22,
+      "startTime": 1668822142,
+      "endTime": 1669686142,
+      "feeBps": 750,
+      "maxTokenSupplyForStage": 1000
+    },
+    {
+      "name": "Team Allocation",
+      "uuid": "b3c22027-3e93-4ec2-8544-7ae69c1cddfc",
+      "description": "Limit 10 per wallet",
+      "isPublic": false,
+      "mintPrice": 0,
+      "maxTotalMintableByWallet": 10,
+      "startTime": 1668636000,
+      "endTime": 1668708420,
+      "feeBps": 0,
+      "maxTokenSupplyForStage": 100
+    },
+    {
+      "name": "Allowlist",
+      "uuid": "b31e17e1-43d6-4e53-9d5c-b83a1153f790",
+      "description": "Limit 10 per wallet",
+      "isPublic": false,
+      "mintPrice": 100000000000000,
+      "maxTotalMintableByWallet": 10,
+      "startTime": 1668708420,
+      "endTime": 1668866400,
+      "feeBps": 0,
+      "maxTokenSupplyForStage": 1000
+    }
+  ]
+}

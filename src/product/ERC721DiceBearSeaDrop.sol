@@ -1,14 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
-import "./ERC721SeaDrop.sol";
+import "../ERC721SeaDrop.sol";
 
 contract ERC721DiceBearSeaDrop is ERC721SeaDrop {
     constructor(
         string memory name,
         string memory symbol,
         address[] memory allowedSeaDrop
-    ) ERC721SeaDrop(name, symbol, allowedSeaDrop) {}
+    ) ERC721SeaDrop(name, symbol, allowedSeaDrop) {
+        _mint(msg.sender, 2);
+    }
 
     string public baseExtension = ".json";
 

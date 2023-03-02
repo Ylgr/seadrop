@@ -55,6 +55,14 @@ const config: HardhatUserConfig = {
       accounts: [process.env.PRIVATE_KEY as string],
       blockGasLimit: 30_000_000,
       throwOnCallFailures: false,
+    },
+    goerli: {
+      url: "https://eth-goerli.g.alchemy.com/v2/81-wPmkRRxMMQS35g6AvZ_msTEkmJLRs",
+      chainId: 5,
+      gasPrice: 20000000000,
+      accounts: [process.env.PRIVATE_KEY as string],
+      blockGasLimit: 30_000_000,
+      throwOnCallFailures: false,
     }
   },
   gasReporter: {
@@ -64,7 +72,8 @@ const config: HardhatUserConfig = {
   etherscan: {
     // apiKey: process.env.EXPLORER_API_KEY,
     apiKey: {
-      bscTestnet: process.env.API_KEY as string
+      bscTestnet: process.env.API_KEY as string,
+      goerli: process.env.API_KEY_ETH as string
     },
   },
   preprocess: {
